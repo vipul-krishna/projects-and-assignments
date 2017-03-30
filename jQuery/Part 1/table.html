@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<!-- Also read chapter 9 from slides - Regular Expressions -->
+
+<html>
+<head>
+	<title>Table CheckList</title>
+	<link rel="stylesheet" type="text/css" href="table.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	
+	
+	<script type="text/javascript" language="javascript">
+	
+		$(document).ready(function() {
+			
+			
+			$("#toggleIt1").hide();
+			$("#toggleIt2").hide();
+			$("#toggleIt3").hide();
+			$("#button").prop("disabled",true);
+			$("#button").css("background-color","#808080");
+			$("#button").css("cursor","no-drop");
+			
+			
+			//////////////////////////////////////////////TOGGLE FEATURE OF DOWN ARROW////////////////////////////////////////
+			
+			$("#toggleFeature1").click(function (){
+			
+				$("#toggleIt1").slideToggle("fast");
+			
+			});
+			$("#toggleFeature2").click(function (){
+			
+				$("#toggleIt2").slideToggle("fast");
+			
+			});
+			$("#toggleFeature3").click(function (){
+			
+				$("#toggleIt3").slideToggle("fast");
+			
+			});
+			
+			///////////////////////////////////////ROW COLOR CHANGE ON CHECKBOX ACTION///////////////////////////////
+			
+			$("#c1").click(function(){
+			
+					if($("#c1").is(':checked') == true){
+						
+						$("#row1").css("background-color", "#ffff66");
+						$("#button").prop("disabled",false);
+						$("#button").css("background-color","#FFA500");
+						$("#button").css("cursor","pointer");	
+						
+					}
+					else{
+						$("#row1").css("background-color", "");
+					}
+					if($("#c1").is(':checked') == false && $("#c2").is(':checked') == false && $("#c3").is(':checked') == false){
+						$("#button").prop("disabled",true);
+						$("#button").css("background-color","#808080");
+						$("#button").css("cursor","no-drop");
+					}
+			
+			});
+			$("#c2").click(function(){
+			
+					if($("#c2").is(':checked') == true){
+						
+						$("#row2").css("background-color", "#ffff66");
+						$("#button").prop("disabled",false);
+						$("#button").css("background-color","#FFA500");
+						$("#button").css("cursor","pointer");
+						
+					}
+					else{
+						$("#row2").css("background-color", "");
+					}
+					if($("#c1").is(':checked') == false && $("#c2").is(':checked') == false && $("#c3").is(':checked') == false){
+						$("#button").prop("disabled",true);
+						$("#button").css("background-color","#808080");
+						$("#button").css("cursor","no-drop");
+					}
+			
+			});
+			$("#c3").click(function(){
+			
+					if($("#c3").is(':checked') == true){
+						
+						$("#row3").css("background-color", "#ffff66");
+						$("#button").prop("disabled",false);
+						$("#button").css("background-color","#FFA500");
+						$("#button").css("cursor","pointer");
+						
+					}
+					else{
+						$("#row3").css("background-color", "");
+						
+					}
+					if($("#c1").is(':checked') == false && $("#c2").is(':checked') == false && $("#c3").is(':checked') == false){
+						$("#button").prop("disabled",true);
+						$("#button").css("background-color","#808080");
+						$("#button").css("cursor","no-drop");
+					}
+			
+			});
+			
+			////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		});
+	
+		
+		
+	
+	</script>
+	
+</head>
+<body>
+	<table id="myTable">
+		<tr>
+			<th></th>
+			<th>STUDENT</th>
+			<th>ADVISOR</th>
+			<th>AWARD<br/>STATUS</th>
+			<th>SEMESTER</th>
+			<th>TYPE</th>
+			<th>BUDGET<br />#</th>
+			<th>PERCENTAGE</th>
+		</tr>
+		<tr id="row1">
+			<td><input type="checkbox"  id  = "c1"/><br /><br /><img src="down.png" width="25px"  id = "toggleFeature1"/></td>
+			<td>Student 1</td>
+			<td>Teacher 1</td>
+			<td>Approved</td>
+			<td>Fall</td>
+			<td>TA</td>
+			<td>12345</td>
+			<td>100%</td>
+		</tr>
+		<tr class="dropDownTextArea" id="toggleIt1"><td colspan="8">
+			Advisor:<br /><br />
+			Award Details<br />
+			Summer 1-2014(TA)<br />
+			Budget Number:  <img src="pencil.png" width="20px"/><br />
+			Tuition Number:  <img src="pencil.png" width="20px"/><br />
+			Comments:<br /><br /><br />
+			Award Status:<br /><br /><br />
+		</td></tr>
+		<tr id="row2">
+			<td><input type="checkbox" id = "c2"/><br /><br /><img src="down.png" width="25px" id = "toggleFeature2"/></td>
+			<td>Student 2</td>
+			<td>Teacher 2</td>
+			<td>Approved</td>
+			<td>Fall</td>
+			<td>TA</td>
+			<td>23456</td>
+			<td>100%</td>
+		</tr>
+		<tr class="dropDownTextArea" id="toggleIt2"><td colspan="8">
+			Advisor:<br /><br />
+			Award Details<br />
+			Summer 1-2014(TA)<br />
+			Budget Number:  <img src="pencil.png" width="20px"/><br />
+			Tuition Number:  <img src="pencil.png" width="20px"/><br />
+			Comments:<br /><br /><br />
+			Award Status:<br /><br /><br />
+		</td></tr>
+		<tr id = "row3">
+			<td><input type="checkbox" id = "c3"/><br /><br /><img src="down.png" width="25px" id = "toggleFeature3"/></td>
+			<td>Student 3</td>
+			<td>Teacher 3</td>
+			<td>Approved</td>
+			<td>Fall</td>
+			<td>TA</td>
+			<td>34567</td>
+			<td>100%</td>
+		</tr>
+		<tr class="dropDownTextArea" id="toggleIt3"><td colspan="8">
+			Advisor:<br /><br />
+			Award Details<br />
+			Summer 1-2014(TA)<br />
+			Budget Number:  <img src="pencil.png" width="20px"/><br />
+			Tuition Number:  <img src="pencil.png" width="20px"/><br />
+			Comments:<br /><br /><br />
+			Award Status:<br /><br /><br />
+		</td></tr>
+	</table>
+	<br /><br />
+	<button id="button">SUBMIT SELECTED AWARDS</button>
+	
+</body>
+</html>

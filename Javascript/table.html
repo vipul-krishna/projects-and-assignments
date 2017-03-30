@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<!-- Also read chapter 9 from slides - Regular Expressions -->
+
+<html>
+<head>
+	<title>Table CheckList</title>
+	<link rel="stylesheet" type="text/css" href="table.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	
+	
+	<script>
+
+		function buttonDisable(){
+		
+		
+					var mybtn = document.getElementById("button");
+					mybtn.disabled = true;
+					mybtn.style.backgroundColor="#808080";
+					mybtn.style.cursor = "no-drop";
+					//document.getElementById("closeit").style.display = "none";
+					//document.getElementsByClassName("dropDownTextArea").style.display = "none";
+					var x = document.getElementsByClassName("dropDownTextArea");
+					x[0].style.display = "none";
+					x[1].style.display = "none";
+					x[2].style.display = "none";
+		
+		}
+		
+		function showTextBox(i){
+			
+					var x = document.getElementsByClassName("dropDownTextArea");
+					//x[0].style.display = "block";
+					
+					//x[0].style.display = "";
+
+					if (x[i].style.display == "none")
+					{
+						x[i].style.display = "";
+					}
+					else
+					{
+						x[i].style.display = "none";
+					}
+		}
+		
+
+		function updaterow(cbox,rowid){
+		
+					var mycheckbox = document.getElementById(cbox);
+					var myrow = document.getElementById(rowid);
+					var mybutton  = document.getElementById("button");
+					
+					
+					
+					if(mycheckbox.checked == true){
+						
+						myrow.bgColor = "#ffff66";
+						mybutton.disabled = false;
+						mybutton.style.backgroundColor="#FFA500";
+						mybutton.style.cursor = "pointer";
+					}
+					else if(mycheckbox.checked == false){
+						
+						myrow.bgColor = "";
+						//mybutton.disabled = true;
+						//mybutton.style.backgroundColor="#808080";
+					}
+					
+					if(document.getElementById("c1").checked == false && document.getElementById("c2").checked == false && document.getElementById("c3").checked == false){
+						mybutton.disabled = true;
+						mybutton.style.backgroundColor="#808080";
+						mybutton.style.cursor = "no-drop";
+						
+					}
+				
+	}
+	</script>
+	
+</head>
+<body onload = "buttonDisable()">
+	<table id="myTable">
+		<tr>
+			<th></th>
+			<th>STUDENT</th>
+			<th>ADVISOR</th>
+			<th>AWARD<br/>STATUS</th>
+			<th>SEMESTER</th>
+			<th>TYPE</th>
+			<th>BUDGET<br />#</th>
+			<th>PERCENTAGE</th>
+		</tr>
+		<tr id="myrow1">
+			<td><input type="checkbox"  id="c1" onclick = "updaterow('c1','myrow1')"/><br /><br /><img src="down.png" width="25px" onclick="showTextBox(0)"/></td>
+			<td>Student 1</td>
+			<td>Teacher 1</td>
+			<td>Approved</td>
+			<td>Fall</td>
+			<td>TA</td>
+			<td>12345</td>
+			<td>100%</td>
+		</tr>
+		<tr class="dropDownTextArea"id="closeit" ><td colspan="8">
+			Advisor:<br /><br />
+			Award Details<br />
+			Summer 1-2014(TA)<br />
+			Budget Number:  <img src="pencil.png" width="20px"/><br />
+			Tuition Number:  <img src="pencil.png" width="20px"/><br />
+			Comments:<br /><br /><br />
+			Award Status:<br /><br /><br />
+		</td></tr>
+		<tr id="myrow2">
+			<td><input type="checkbox" id="c2" onclick = "updaterow('c2','myrow2')"/><br /><br /><img src="down.png" width="25px" onclick="showTextBox(1)"/></td>
+			<td>Student 2</td>
+			<td>Teacher 2</td>
+			<td>Approved</td>
+			<td>Fall</td>
+			<td>TA</td>
+			<td>23456</td>
+			<td>100%</td>
+		</tr>
+		<tr class="dropDownTextArea"><td colspan="8">
+			Advisor:<br /><br />
+			Award Details<br />
+			Summer 1-2014(TA)<br />
+			Budget Number: <img src="pencil.png" width="20px"/><br />
+			Tuition Number: <img src="pencil.png" width="20px"/><br />
+			Comments:<br /><br /><br />
+			Award Status:<br /><br /><br />
+		</td></tr>
+		<tr id="myrow3">
+			<td><input type="checkbox" id="c3" onclick = "updaterow('c3','myrow3')"/><br /><br /><img src="down.png" width="25px" onclick="showTextBox(2)"/></td>
+			<td>Student 3</td>
+			<td>Teacher 3</td>
+			<td>Approved</td>
+			<td>Fall</td>
+			<td>TA</td>
+			<td>34567</td>
+			<td>100%</td>
+		</tr>
+		<tr class="dropDownTextArea"><td colspan="8">
+			Advisor:<br /><br />
+			Award Details<br />
+			Summer 1-2014(TA)<br />
+			Budget Number: <img src="pencil.png" width="20px"/><br />
+			Tuition Number: <img src="pencil.png" width="20px"/><br />
+			Comments:<br /><br /><br />
+			Award Status:<br /><br /><br />
+		</td></tr>
+	</table>
+
+	<br /><br />
+	<button id="button">SUBMIT SELECTED AWARDS</button>
+
+	<nav class="socialmediaicons">
+		<p id = "footerTitle"></p>
+			<script>
+			
+				function Title(t1) 
+				{ 
+					this.mytitle = t1;
+				}
+
+				Title.prototype.getName = function () 
+				{ 
+					return (this.mytitle);
+				}
+
+				var socialMedia = {
+							facebook : 'http://facebook.com',
+							twitter: 'http://twitter.com',
+							flickr: 'http://flickr.com',
+							youtube: 'http://youtube.com'
+							};
+
+				var t = new Title("CONNECT WITH ME!");
+			
+				document.getElementById("footerTitle").innerHTML = t.getName();
+
+				document.write("<ul>");
+				document.write("<li><a href=''><img src='./images/facebook.png' width='20px'/></a></li> ");
+				document.write("<li><a href=''><img src='./images/twitter.png' width='20px'/></a></li>");
+				document.write("<li><a href=''><img src='./images/flickr.png' width='20px'/></a></li>");
+				document.write("<li><a href=''><img src='./images/youtube.png' width='20px'/></a></li>");
+				document.write("<li><a href=''><img src='./images/meetup.png' width='20px'/></a></li>");
+				document.write("<li><a href=''><img src='./images/linkedin.png' width='20px'/></a></li>");
+				document.write("</ul>");
+				
+				
+			</script>
+
+	
+	</nav>
+	<script src="script.js"></script>
+	
+</body>
+</html>
